@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clara Answers - Pipeline Dashboard</title>
+    <meta name="description"
+        content="Clara Answers automation pipeline dashboard - view account memos, agent specs, and version diffs">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <circle cx="14" cy="14" r="12" stroke="url(#grad1)" stroke-width="2.5" />
+                            <circle cx="14" cy="14" r="6" fill="url(#grad1)" />
+                            <defs>
+                                <linearGradient id="grad1" x1="0" y1="0" x2="28" y2="28">
+                                    <stop offset="0%" stop-color="#6366f1" />
+                                    <stop offset="100%" stop-color="#8b5cf6" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h1>Clara Answers</h1>
+                    <span class="badge">Pipeline Dashboard</span>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-ghost" id="loadDataBtn" onclick="loadSampleData()">
+                        <span class="btn-icon">📂</span> Load Data
+                    </button>
+                    <button class="btn btn-ghost" id="themeToggle" onclick="toggleTheme()">
+                        <span class="btn-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Stats Bar -->
+            <div class="stats-bar" id="statsBar">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalAccounts">0</div>
+                    <div class="stat-label">Total Accounts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="v1Count">0</div>
+                    <div class="stat-label">v1 Generated</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="v2Count">0</div>
+                    <div class="stat-label">v2 Updated</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalChanges">0</div>
+                    <div class="stat-label">Total Changes</div>
+                </div>
+            </div>
+
+            <!-- Account List + Detail View -->
+            <div class="content-grid">
+                <!-- Sidebar: Account List -->
+                <aside class="sidebar">
+                    <div class="sidebar-header">
+                        <h2>Accounts</h2>
+                        <span class="account-count" id="accountCount">0</span>
+                    </div>
+                    <div class="account-list" id="accountList">
+                        <div class="empty-state">
+                            <div class="empty-icon">📋</div>
+                            <p>No accounts loaded</p>
+                            <p class="empty-hint">Click "Load Data" or paste JSON</p>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main: Detail View -->
+                <section class="detail-view" id="detailView">
+                    <div class="empty-state detail-empty">
+                        <div class="empty-icon">🤖</div>
+                        <h3>Clara Answers Pipeline Dashboard</h3>
+                        <p>Select an account to view its memo, agent spec, and version diff</p>
+                        <div class="feature-list">
+                            <div class="feature"><span>📋</span> Account Memos (v1 → v2)</div>
+                            <div class="feature"><span>🤖</span> Retell Agent Specs</div>
+                            <div class="feature"><span>🔄</span> Version Diff Viewer</div>
+                            <div class="feature"><span>📊</span> Change Tracking</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- JSON Input Modal -->
+    <div class="modal-overlay" id="jsonModal" style="display:none">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Load Account Data</h3>
+                <button class="btn btn-ghost modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>Paste account output JSON or load from files:</p>
+                <div class="modal-tabs">
+                    <button class="tab active" onclick="switchTab('paste')">Paste JSON</button>
+                    <button class="tab" onclick="switchTab('file')">Upload Files</button>
+                    <button class="tab" onclick="switchTab('sample')">Sample Data</button>
+                </div>
+                <div id="tab-paste" class="tab-content active">
+                    <textarea id="jsonInput"
+                        placeholder='Paste the contents of an account_memo.json file here...'></textarea>
+                    <button class="btn btn-primary" onclick="loadFromPaste()">Load JSON</button>
+                </div>
+                <div id="tab-file" class="tab-content" style="display:none">
+                    <input type="file" id="fileInput" accept=".json" multiple>
+                    <button class="btn btn-primary" onclick="loadFromFiles()">Load Files</button>
+                </div>
+                <div id="tab-sample" class="tab-content" style="display:none">
+                    <p>Load pre-built sample data to explore the dashboard:</p>
+                    <button class="btn btn-primary" onclick="loadSampleDataAndClose()">Load Sample Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard_data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

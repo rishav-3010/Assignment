@@ -1,0 +1,138 @@
+{
+    "name": "Clara Pipeline B - Onboarding to Agent v2",
+    "nodes": [
+        {
+            "parameters": {
+                "content": "## Clara Pipeline B\n### Onboarding → v2 Agent Update\n\nThis workflow:\n1. Reads an onboarding transcript\n2. Loads existing v1 account memo\n3. Extracts updates from onboarding\n4. Produces v2 memo + agent spec + changelog",
+                "height": 280,
+                "width": 340
+            },
+            "id": "note-b1",
+            "name": "Sticky Note",
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+                200,
+                140
+            ],
+            "typeVersion": 1
+        },
+        {
+            "parameters": {},
+            "id": "trigger-b1",
+            "name": "Manual Trigger",
+            "type": "n8n-nodes-base.manualTrigger",
+            "position": [
+                600,
+                300
+            ],
+            "typeVersion": 1
+        },
+        {
+            "parameters": {
+                "values": {
+                    "string": [
+                        {
+                            "name": "transcript_path",
+                            "value": "/data/datasets/onboarding/bens_electric_solutions/transcript.txt"
+                        },
+                        {
+                            "name": "account_id",
+                            "value": "bens_electric_solutions"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "id": "set-input-b1",
+            "name": "Set Input Parameters",
+            "type": "n8n-nodes-base.set",
+            "position": [
+                820,
+                300
+            ],
+            "typeVersion": 3.4
+        },
+        {
+            "parameters": {
+                "command": "cd /data && python -m scripts.update_agent_from_onboarding \"{{ $json.transcript_path }}\" \"{{ $json.account_id }}\""
+            },
+            "id": "update-agent-b1",
+            "name": "Update Agent from Onboarding",
+            "type": "n8n-nodes-base.executeCommand",
+            "position": [
+                1060,
+                300
+            ],
+            "typeVersion": 1
+        },
+        {
+            "parameters": {
+                "filePath": "/data/outputs/accounts/{{ $json.account_id }}/v2/changelog.md"
+            },
+            "id": "read-changelog-b1",
+            "name": "Read Changelog",
+            "type": "n8n-nodes-base.readBinaryFile",
+            "position": [
+                1300,
+                300
+            ],
+            "typeVersion": 1
+        },
+        {
+            "parameters": {
+                "content": "### ✅ Pipeline B Complete\n\nOutputs saved to:\n- `/data/outputs/accounts/<id>/v2/account_memo.json`\n- `/data/outputs/accounts/<id>/v2/agent_spec.json`\n- `/data/outputs/accounts/<id>/v2/changelog.md`\n- `/data/outputs/accounts/<id>/v2/changelog.json`",
+                "height": 200,
+                "width": 340
+            },
+            "id": "note-b2",
+            "name": "Completion Note",
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+                1540,
+                220
+            ],
+            "typeVersion": 1
+        }
+    ],
+    "connections": {
+        "Manual Trigger": {
+            "main": [
+                [
+                    {
+                        "node": "Set Input Parameters",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Set Input Parameters": {
+            "main": [
+                [
+                    {
+                        "node": "Update Agent from Onboarding",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Update Agent from Onboarding": {
+            "main": [
+                [
+                    {
+                        "node": "Read Changelog",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "settings": {
+        "executionOrder": "v1"
+    },
+    "meta": {
+        "instanceId": "clara-pipeline-b"
+    }
+}

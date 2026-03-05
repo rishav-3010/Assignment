@@ -1,0 +1,27 @@
+[00:00] Onboarding Rep: Hi Maria, let's get Clara configured for Guardian Alarm Systems.
+
+[00:05] Maria Rodriguez: Sure thing.
+
+[00:07] Onboarding Rep: Hours are Monday to Friday, 8 AM to 6 PM MST?
+
+[00:10] Maria Rodriguez: Correct. And like I mentioned, monitoring is 24/7 so after-hours calls still need to be handled.
+
+[00:18] Onboarding Rep: Office address?
+
+[00:20] Maria Rodriguez: 3401 North Central Avenue, Suite 150, Phoenix, Arizona, 85012.
+
+[00:28] Onboarding Rep: Emergency routing?
+
+[00:30] Maria Rodriguez: During business hours, Roberto Martinez is dispatch coordinator at 602-555-0188. After hours, the on-call tech phone is 602-555-0199. If on-call doesn't answer in 30 seconds, try me directly at 602-555-0145. If I don't answer, text both numbers with ALL the details - client name, address, alarm type, and time of the alert.
+
+[00:52] Onboarding Rep: What about non-emergency calls after hours?
+
+[00:55] Maria Rodriguez: Take a message. Standard stuff - name, number, reason. We'll call back next business day. Unless they say their system is showing a fault code - that's semi-urgent. For fault codes, text Roberto and he'll decide if it needs immediate attention.
+
+[01:10] Onboarding Rep: Any integration constraints?
+
+[01:13] Maria Rodriguez: We use Alarm.com for monitoring. Clara should never attempt to disable or reset any alarm system remotely. That's a huge liability. Also, all new installation requests need to go to Roberto specifically - don't route those to the on-call tech.
+
+[01:28] Onboarding Rep: Got it. Anything else?
+
+[01:30] Maria Rodriguez: If a caller says they hear their alarm going off right now, Clara should first ask if they're safe and if they've called 911. Then collect their info and transfer to the on-call line immediately.

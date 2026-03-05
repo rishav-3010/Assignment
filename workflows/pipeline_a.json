@@ -1,0 +1,141 @@
+{
+  "name": "Clara Pipeline A - Demo to Agent v1",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Clara Pipeline A\n### Demo Call → v1 Agent\n\nThis workflow:\n1. Reads a demo transcript file\n2. Extracts account memo (via Python script)\n3. Generates Retell agent spec\n4. Outputs v1 artifacts",
+        "height": 260,
+        "width": 320
+      },
+      "id": "note-1",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [200, 140],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [600, 300],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "transcript_path",
+              "value": "/data/datasets/demo/bens_electric_solutions/transcript.txt"
+            },
+            {
+              "name": "account_id",
+              "value": "bens_electric_solutions"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-input-1",
+      "name": "Set Input Parameters",
+      "type": "n8n-nodes-base.set",
+      "position": [820, 300],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "command": "cd /data && python -m scripts.extract_account_memo \"{{ $json.transcript_path }}\" --account-id \"{{ $json.account_id }}\" --source demo"
+      },
+      "id": "extract-memo-1",
+      "name": "Extract Account Memo",
+      "type": "n8n-nodes-base.executeCommand",
+      "position": [1060, 300],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "command": "cd /data && python -m scripts.generate_agent_spec \"{{ $json.account_id }}\" --version v1"
+      },
+      "id": "gen-spec-1",
+      "name": "Generate Agent Spec",
+      "type": "n8n-nodes-base.executeCommand",
+      "position": [1300, 300],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "filePath": "/data/outputs/accounts/{{ $json.account_id }}/v1/account_memo.json"
+      },
+      "id": "read-memo-1",
+      "name": "Read Generated Memo",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [1540, 300],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### ✅ Pipeline A Complete\n\nOutputs saved to:\n- `/data/outputs/accounts/<id>/v1/account_memo.json`\n- `/data/outputs/accounts/<id>/v1/agent_spec.json`",
+        "height": 160,
+        "width": 320
+      },
+      "id": "note-2",
+      "name": "Completion Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [1780, 220],
+      "typeVersion": 1
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Input Parameters",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Input Parameters": {
+      "main": [
+        [
+          {
+            "node": "Extract Account Memo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Account Memo": {
+      "main": [
+        [
+          {
+            "node": "Generate Agent Spec",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Agent Spec": {
+      "main": [
+        [
+          {
+            "node": "Read Generated Memo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "instanceId": "clara-pipeline-a"
+  }
+}

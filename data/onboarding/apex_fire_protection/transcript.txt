@@ -1,0 +1,23 @@
+[00:00] Onboarding Rep: Hi Sarah, let's get Clara set up for Apex Fire Protection. I have your demo notes here.
+
+[00:06] Sarah Chen: Great, let's go through it.
+
+[00:08] Onboarding Rep: Business hours - Monday to Friday, 8 to 5 Central?
+
+[00:12] Sarah Chen: That's correct. But I want to add that we have a skeleton crew on Saturdays from 9 AM to 1 PM for emergency follow-ups. Not for regular scheduling though.
+
+[00:22] Onboarding Rep: Noted. And your office address?
+
+[00:25] Sarah Chen: 2847 Commerce Street, Suite 200, Dallas, Texas, 75226.
+
+[00:32] Onboarding Rep: Emergency routing - Mike Torres is first at 214-555-0147?
+
+[00:36] Sarah Chen: Yes, Mike is first. If he doesn't answer after 30 seconds, try our field supervisor Jake Williams at 214-555-0283. If Jake doesn't answer, the fallback is to collect all info and send an emergency text to both Mike and Jake. And tell the caller someone will call back within 15 minutes.
+
+[00:55] Onboarding Rep: Any integration constraints?
+
+[00:58] Sarah Chen: Yes - we use ServiceTrade heavily. Never create sprinkler inspection jobs automatically in ServiceTrade. Those require a specific workflow with documentation. Also, backflow testing jobs need a separate category - don't let them get mixed in with regular fire protection work.
+
+[01:15] Onboarding Rep: Got it. Anything else?
+
+[01:18] Sarah Chen: If someone calls about a sprinkler head actively spraying water, that's the highest priority emergency. Clara should stay calm but move fast - get the address immediately and attempt transfer to Mike right away. Don't waste time with other questions first.

@@ -1,0 +1,21 @@
+[00:00] Rep: Thanks for taking the time for this demo. Can you introduce yourself?
+
+[00:04] Tom Williams: Sure. Tom Williams, owner of Pacific HVAC Services. We're out in Portland, Oregon. Been in business about 15 years doing HVAC installation, repair, and maintenance for commercial and residential.
+
+[00:15] Rep: What brings you to Clara?
+
+[00:18] Tom Williams: We're growing fast and I can't keep answering phones between jobs. My wife Lisa handles calls during the day but she's also doing the bookkeeping. We need something to help especially after hours and weekends.
+
+[00:30] Rep: What are your current hours?
+
+[00:32] Tom Williams: Monday through Friday, 7:30 AM to 4:30 PM Pacific Time. We're closed weekends unless it's an emergency.
+
+[00:40] Rep: What constitutes an emergency in HVAC?
+
+[00:43] Tom Williams: No heat in winter, that's the big one. Also AC failure in summer when it's above 90 degrees. Any gas leak obviously. Carbon monoxide alarm going off. CO detector issues. Refrigerant leaks in commercial settings.
+
+[00:58] Rep: Got it. And who would handle emergency calls?
+
+[01:00] Tom Williams: That would be me for now. My cell is 503-555-0176. Eventually I want to have an on-call rotation but right now it's just me and my lead technician Dave for emergencies.
+
+[01:12] Rep: Let me show you how Clara would handle a typical after-hours call...

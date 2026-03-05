@@ -1,0 +1,25 @@
+[00:00] Rep: Welcome to the Clara demo. Who do I have the pleasure of speaking with?
+
+[00:05] Sarah Chen: Hi, I'm Sarah Chen. I'm the operations manager at Apex Fire Protection. We handle fire protection services in the Dallas-Fort Worth area.
+
+[00:15] Rep: Great to meet you Sarah. Tell me about your business.
+
+[00:18] Sarah Chen: We do fire sprinkler installation and maintenance, fire alarm systems, fire extinguisher inspections, and backflow prevention testing. We have about 30 technicians in the field.
+
+[00:30] Rep: What's your biggest challenge with call handling?
+
+[00:33] Sarah Chen: After-hours emergencies are the killer. We get calls at 2 AM about sprinkler leaks flooding a building, and right now my guys rotate being on-call but sometimes calls get missed. A sprinkler leak can cause hundreds of thousands in damage if not handled fast.
+
+[00:48] Rep: What would you consider an emergency?
+
+[00:50] Sarah Chen: Sprinkler system leaks or breaks, fire alarm system malfunctions, any active fire suppression system failure. Basically anything where water is going where it shouldn't or a fire system isn't working.
+
+[01:02] Rep: And your business hours?
+
+[01:05] Sarah Chen: We're Monday through Friday, 8 AM to 5 PM Central Time. But emergencies are 24/7, that's the nature of fire protection.
+
+[01:15] Rep: Who handles the emergency calls?
+
+[01:18] Sarah Chen: We have a dedicated emergency line. It rings to our dispatch manager first, that's Mike Torres at 214-555-0147. If Mike doesn't pick up, it rolls to our field supervisor.
+
+[01:30] Rep: This sounds perfect for Clara. Let me show you how it would work for your callers...

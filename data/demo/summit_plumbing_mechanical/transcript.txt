@@ -1,0 +1,21 @@
+[00:00] Rep: Welcome! Tell me about your company.
+
+[00:04] Dave Mitchell: I'm Dave Mitchell, president of Summit Plumbing and Mechanical. We're a commercial plumbing company in Denver, Colorado. We handle plumbing for large commercial buildings, hospitals, schools, you name it.
+
+[00:18] Rep: What kind of calls do you deal with?
+
+[00:20] Dave Mitchell: Everything from scheduling routine maintenance to middle-of-the-night pipe bursts. The emergencies are the real problem. When a pipe bursts in a hospital, that's catastrophic. We need someone handling calls 24/7.
+
+[00:35] Rep: Your business hours?
+
+[00:37] Dave Mitchell: Office is Monday to Friday, 6 AM to 4 PM. We start early because that's the construction world. Mountain Time zone.
+
+[00:45] Rep: What are emergencies for you?
+
+[00:48] Dave Mitchell: Pipe bursts, sewer backups, gas line breaks, no hot water in a hospital or school, flooding of any kind. Also if a fire suppression water line breaks - that causes massive flooding.
+
+[01:00] Rep: Emergency contacts?
+
+[01:02] Dave Mitchell: Our office manager Karen takes calls during the day, she dispatches. After hours we have a duty phone that the on-call plumber carries. Number is 720-555-0167.
+
+[01:15] Rep: This sounds like a perfect use case. Let me walk you through how Clara handles emergency routing...

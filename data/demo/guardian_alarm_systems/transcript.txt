@@ -1,0 +1,21 @@
+[00:00] Rep: Thanks for joining the demo. Tell me about your company.
+
+[00:05] Maria Rodriguez: Hi, I'm Maria Rodriguez. I run Guardian Alarm Systems in Phoenix, Arizona. We install and monitor security alarm systems and fire alarms for commercial buildings.
+
+[00:18] Rep: What's your main challenge?
+
+[00:20] Maria Rodriguez: When an alarm goes off at 3 AM, our monitoring center calls the client but they also need to reach us for dispatch. Those calls need to be handled instantly. Right now they just call my cell and half the time I'm asleep and miss it.
+
+[00:35] Rep: Business hours?
+
+[00:37] Maria Rodriguez: Office is open Monday through Friday, 8 AM to 6 PM. But monitoring is 24/7. Arizona doesn't do daylight saving so we're on MST year-round.
+
+[00:48] Rep: What's an emergency in your world?
+
+[00:50] Maria Rodriguez: Active alarm triggered - could be burglar alarm, fire alarm, panic alarm. Also any system malfunction where a client's building is unprotected. Those are all urgent.
+
+[01:00] Rep: Who should get the emergency calls?
+
+[01:03] Maria Rodriguez: Our dispatch coordinator Roberto handles it during the day. After hours, it should go to our on-call technician phone.
+
+[01:12] Rep: Perfect, let's see how Clara would handle that...
