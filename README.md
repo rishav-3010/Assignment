@@ -13,30 +13,30 @@
 │                    CLARA ANSWERS PIPELINE                        │
 ├──────────────────────────────────────────────────────────────────┤
 │                                                                  │
-│  ┌─────────────┐    ┌──────────────┐    ┌──────────────────┐     │
-│  │ Demo Call   │──▶│ Transcript   │───▶│ Account Memo     │     │
-│  │ Transcript  │    │ Parser       │    │ Extractor (LLM)  │     │
-│  └─────────────┘    └──────────────┘    └────────┬─────────┘     │
-│                                                  │               │
-│                                         ┌────────▼─────────┐     │
-│  PIPELINE A (Demo → v1)                 │ Agent Spec       │     │
-│                                         │ Generator        │     │
-│                                         └────────┬─────────┘     │
-│                                                  │               │
-│                                         ┌────────▼─────────┐     │
-│                                         │ Store v1 Outputs │     │
-│                                         │ (JSON files)     │     │
-│                                         └──────────────────┘     │
-│                                                                  │
-│  ┌─────────────┐    ┌──────────────┐    ┌──────────────────┐     │
-│  │ Onboarding  │──▶│ Update       │───▶│ Diff Engine      │     │
-│  │ Transcript  │    │ Extractor    │    │ v1 → v2          │     │
-│  └─────────────┘    └──────────────┘    └────────┬─────────┘     │
-│                                                  │               │
-│  PIPELINE B (Onboarding → v2)           ┌────────▼─────────┐     │
-│                                         │ Store v2 +       │     │
-│                                         │ Changelog        │     │
-│                                         └──────────────────┘     │
+│  ┌─────────────┐    ┌──────────────┐    ┌──────────────────┐    │
+│  │ Demo Call   │──▶│ Transcript   │───▶│ Account Memo     │    │
+│  │ Transcript  │    │ Parser       │    │ Extractor (LLM)  │    │
+│  └─────────────┘    └──────────────┘    └────────┬─────────┘    │
+│                                                  │              │
+│                                         ┌────────▼─────────┐    │
+│  PIPELINE A (Demo → v1)                 │ Agent Spec       │    │
+│                                         │ Generator        │    │
+│                                         └────────┬─────────┘    │
+│                                                  │              │
+│                                         ┌────────▼─────────┐    │
+│                                         │ Store v1 Outputs │    │
+│                                         │ (JSON files)     │    │
+│                                         └──────────────────┘    │
+│                                                                 │
+│  ┌─────────────┐    ┌──────────────┐    ┌──────────────────┐    │
+│  │ Onboarding  │──▶│ Update       │───▶│ Diff Engine      │    │
+│  │ Transcript  │    │ Extractor    │    │ v1 → v2          │    │
+│  └─────────────┘    └──────────────┘    └────────┬─────────┘    │
+│                                                  │              │
+│  PIPELINE B (Onboarding → v2)           ┌────────▼─────────┐    │
+│                                         │ Store v2 +       │    │
+│                                         │ Changelog        │    │
+│                                         └──────────────────┘    │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -86,7 +86,7 @@ The pipeline supports multiple transcript formats automatically:
 
 ### 4. Run the Pipeline
 
-You have two options for running the pipeline:
+There are three ways to run the pipeline:
 
 **Option A: Batch Process All Transcripts (Recommended)**
 This will process every folder inside `data/demo` and `data/onboarding`.
@@ -94,16 +94,25 @@ This will process every folder inside `data/demo` and `data/onboarding`.
 python -m scripts.batch_process
 ```
 
-**Option B: Process Individual Files**
-If you only want to run a specific file instead of the whole batch, use the individual scripts:
+**Option B: Process a Single Account (End-to-End)**
+If you want to run the entire pipeline (Demo -> v1 -> Onboarding -> v2 -> Dashboard) for just one account in a single command:
+```bash
+python -m scripts.run_account bens_electric_solutions
+```
+
+**Option C: Process Step-by-Step (Advanced)**
+If you want to run the individual scripts one by one:
 
 ```bash
-# Pipeline A: Demo → v1 (Pass the file path)
+# 1. Pipeline A: Demo → v1
 python -m scripts.extract_account_memo data/demo/bens_electric_solutions/transcript.txt
 python -m scripts.generate_agent_spec bens_electric_solutions
 
-# Pipeline B: Onboarding → v2 (Pass the file path and account ID)
+# 2. Pipeline B: Onboarding → v2
 python -m scripts.update_agent_from_onboarding data/onboarding/bens_electric_solutions/transcript.txt bens_electric_solutions
+
+# 3. Export to Dashboard
+python -m scripts.export_dashboard_data
 ```
 
 ### 4. View Dashboard (Bonus)
