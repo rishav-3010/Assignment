@@ -106,7 +106,7 @@ python -m scripts.generate_agent_spec bens_electric_solutions
 python -m scripts.update_agent_from_onboarding data/onboarding/bens_electric_solutions/transcript.txt bens_electric_solutions
 ```
 
-### 4. View Dashboard (Bonus)
+### 4. View Dashboard
 
 Open `dashboard/index.html` in any browser. The dashboard includes:
 - Account overview with metrics
