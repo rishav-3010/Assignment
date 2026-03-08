@@ -288,7 +288,7 @@ def main():
 
     v2_memo, changelog = update_agent_from_onboarding(args.transcript, args.account_id)
     print(f"\n✅ Done! v2 memo and agent spec for: {v2_memo.get('company_name', args.account_id)}")
-    print(f"📋 Changes:\n{changelog.to_markdown()}")
+    print(f"📋 Changelog saved to outputs/accounts/{args.account_id}/v2/changelog.md")
 
 
 if __name__ == "__main__":
