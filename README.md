@@ -109,11 +109,17 @@ python -m scripts.extract_account_memo data/demo/bens_electric_solutions/transcr
 python -m scripts.generate_agent_spec bens_electric_solutions
 
 # 2. Pipeline B: Onboarding → v2
-python -m scripts.update_agent_from_onboarding data/onboarding/bens_electric_solutions/transcript.txt bens_electric_solutions
+python -m scripts.update_agent_from_onboarding data/onboarding/bens_electric_solution/transcript.txt bens_electric_solutions
 
 # 3. Export to Dashboard
 python -m scripts.export_dashboard_data
 ```
+> **Note:** Option A and Option B automatically export the data to the dashboard. Option C requires you to manually run the export command (step 3).
+
+> **💡 Want to re-run the pipeline fresh?** Clear the cached LLM responses first:
+> ```bash
+> Remove-Item -Recurse -Force .cache
+> ```
 
 ### 4. View Dashboard
 

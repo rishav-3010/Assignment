@@ -147,7 +147,7 @@ def batch_process(validate_only: bool = False):
     pairs = match_demo_to_onboarding(demo_files, onboarding_files)
     
     # FILTER: ONLY process the real transcript folder
-    pairs = [p for p in pairs if p["account_id"] == "bens_electric_solution"]
+    # pairs = [p for p in pairs if p["account_id"] == "bens_electric_solutions"]
     
     print(f"\n📋 Account Pairs:")
     for pair in pairs:

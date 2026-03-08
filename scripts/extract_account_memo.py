@@ -221,6 +221,26 @@ def extract_account_memo(transcript_path: str, account_id: str = None, source: s
         print("  📏 Using rule-based extraction (no LLM configured)...")
         raw_data = rule_based_extraction(transcript_text)
 
+    # Sanitize raw_data: replace None values with appropriate defaults
+    # LLM may return null for fields that Pydantic expects as str/list
+    def sanitize_none(obj, path=""):
+        if isinstance(obj, dict):
+            return {k: sanitize_none(v, f"{path}.{k}") for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [sanitize_none(item, f"{path}[]") for item in obj]
+        elif obj is None:
+            return ""  # Default None to empty string (Pydantic Optional[int] handles "" -> None)
+        return obj
+    
+    raw_data = sanitize_none(raw_data)
+    
+    # Fix Optional[int] fields that got converted to "" by sanitization
+    ct = raw_data.get("call_transfer_rules", {})
+    if isinstance(ct, dict):
+        for int_field in ("timeout_seconds", "max_retries"):
+            if ct.get(int_field) == "":
+                ct[int_field] = None  # Let Pydantic use the default for Optional[int]
+    
     # Build AccountMemo
     company_name = raw_data.get("company_name", "")
     
